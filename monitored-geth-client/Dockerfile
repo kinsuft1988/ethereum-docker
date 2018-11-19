@@ -1,4 +1,4 @@
-FROM ethereum/client-go
+FROM eth-tps-test:hard-10
 
 RUN apk add --update git bash nodejs nodejs-npm perl
 
