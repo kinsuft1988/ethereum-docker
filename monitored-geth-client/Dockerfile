@@ -1,4 +1,4 @@
-FROM kinsuft173/eth-tps-test:hard-5-v1
+FROM kinsuft173/eth-tps-test:hard-5
 
 RUN apk add --update git bash nodejs nodejs-npm perl
 
