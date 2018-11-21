@@ -1,4 +1,4 @@
-FROM eth-tps-test:hard-10
+FROM eth-tps-test:hard-10-v1
 
 RUN apk add --update git bash nodejs nodejs-npm perl
 
