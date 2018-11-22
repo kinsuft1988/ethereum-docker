@@ -18,6 +18,7 @@ services:
       - "30303:30303"
       - "30303:30303/udp"
       - "8546:8545"
+
   eth1:
     build: monitored-geth-client
     restart: on-failure
@@ -35,6 +36,7 @@ services:
       - "30304:30303"
       - "30304:30303/udp"
       - "8547:8545"
+      
   eth2:
     build: monitored-geth-client
     restart: on-failure
