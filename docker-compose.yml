@@ -18,12 +18,11 @@ services:
       - "30303:30303"
       - "30303:30303/udp"
       - "8546:8545"
-
-  eth1:
+  eth:
     build: monitored-geth-client
     restart: on-failure
     links:
-      # - bootstrap
+      - bootstrap
       - netstats
     entrypoint: /root/start.sh
     volumes:
@@ -31,30 +30,7 @@ services:
       - ./files/genesis.json:/root/files/genesis.json:ro
       - ./files/keystore:/root/.ethereum/devchain/keystore:rw
       # - /etc/localtime:/etc/localtime:ro
-    command: '--datadir=~/.ethereum/devchain --mine --minerthreads=2  --rpcapi "db,personal,eth,net,web3" --rpccorsdomain="*" --networkid=456719 --rpc --rpcaddr="0.0.0.0" --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@192.168.31.246:30303"' 
-    ports:
-      - "30304:30303"
-      - "30304:30303/udp"
-      - "8547:8545"
-      
-  eth2:
-    build: monitored-geth-client
-    restart: on-failure
-    links:
-      # - bootstrap
-      - netstats
-    entrypoint: /root/start.sh
-    volumes:
-      - ./files/password:/root/files/password:ro
-      - ./files/genesis.json:/root/files/genesis.json:ro
-      - ./files/keystore:/root/.ethereum/devchain/keystore:rw
-      # - /etc/localtime:/etc/localtime:ro
-    command: '--datadir=~/.ethereum/devchain --mine --minerthreads=2 --rpcapi "db,personal,eth,net,web3" --rpccorsdomain="*" --networkid=456719 --rpc --rpcaddr="0.0.0.0" --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@192.168.31.246:30303"'
-    ports:
-      - "30305:30303"
-      - "30305:30303/udp"
-      - "8548:8545"
-
+    command: '--datadir=~/.ethereum/devchain --mine --minerthreads=2 --rpccorsdomain="*" --networkid=456719 --rpc --bootnodes="enode://288b97262895b1c7ec61cf314c2e2004407d0a5dc77566877aad1f2a36659c8b698f4b56fd06c4a0c0bf007b4cfb3e7122d907da3b005fa90e724441902eb19e@192.168.31.246:30303"'
   netstats:
     build: eth-netstats
     restart: on-failure
@@ -68,6 +44,7 @@ services:
   ethintract:
     build: ethinteract
     restart: on-failure
+    container_name: ethinteract
     # volumes:
       # - /etc/localtime:/etc/localtime:ro
     ports:
