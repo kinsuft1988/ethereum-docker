@@ -23,7 +23,7 @@ services:
     build: monitored-geth-client
     restart: on-failure
     links:
-      - bootstrap
+      # - bootstrap
       - netstats
     entrypoint: /root/start.sh
     volumes:
@@ -41,7 +41,7 @@ services:
     build: monitored-geth-client
     restart: on-failure
     links:
-      - bootstrap
+      # - bootstrap
       - netstats
     entrypoint: /root/start.sh
     volumes:
