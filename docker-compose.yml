@@ -49,11 +49,11 @@ services:
     ports:
       - "3000:3000"
 
-  # ethintract:
-  #   build: ethinteract
-  #   restart: on-failure
-  #   container_name: ethinteract
-  #   # volumes:
-  #     # - /etc/localtime:/etc/localtime:ro
-  #   ports:
-  #     - "3001:3001"
+  ethintract:
+    build: ethinteract
+    restart: on-failure
+    container_name: ethinteract
+    # volumes:
+      # - /etc/localtime:/etc/localtime:ro
+    ports:
+      - "3001:3001"
