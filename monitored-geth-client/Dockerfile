@@ -1,4 +1,4 @@
-FROM kinsuft173/eth-tps-test:hard-5
+FROM ethereum/client-go
 
 RUN apk add --update git bash nodejs nodejs-npm perl
 
