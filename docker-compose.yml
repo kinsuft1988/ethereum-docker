@@ -15,7 +15,7 @@ services:
     ports:
       - "30303:30303"
       - "30303:30303/udp"
-      - "8546:8545"
+      - "8545:8545"
   netstats:
     build: eth-netstats
     restart: on-failure
