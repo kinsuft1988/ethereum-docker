@@ -1,6 +1,6 @@
 version: '2'
 services:
-   eth:
+  eth:
     build: monitored-geth-client
     restart: on-failure
     entrypoint: /root/start.sh
